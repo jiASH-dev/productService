@@ -71,4 +71,7 @@ public class SystemBlock {
             joinColumns = @JoinColumn(name = "system_block_id"),
             inverseJoinColumns = @JoinColumn(name = "memory_id"))
     private List<Memory> rams;
+
+    @Column(name = "amount")
+    private Integer amount;
 }

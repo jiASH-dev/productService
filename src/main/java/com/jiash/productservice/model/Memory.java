@@ -41,4 +41,7 @@ public class Memory {
     public enum EMemoryCapacity {
         FOUR, EIGHT, TWELVE, SIXTEEN
     }
+
+    @Column(name = "amount")
+    private Integer amount;
 }

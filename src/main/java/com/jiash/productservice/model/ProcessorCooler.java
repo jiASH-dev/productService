@@ -66,4 +66,7 @@ public class ProcessorCooler {
     @OneToOne
     @JoinColumn(name = "socket_type_id")
     private SocketType socketType;
+
+    @Column(name = "amount")
+    private Integer amount;
 }

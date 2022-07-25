@@ -55,4 +55,7 @@ public class Laptop {
             joinColumns = @JoinColumn(name = "laptop_id"),
             inverseJoinColumns = @JoinColumn(name = "memory_id"))
     private List<Memory> rams;
+
+    @Column(name = "amount")
+    private Integer amount;
 }

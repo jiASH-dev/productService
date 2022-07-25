@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,5 +56,113 @@ public class Processor {
     @OneToOne
     @JoinColumn(name = "tpd_id")
     private Tdp tdp;
+
+    @Column(name = "amount")
+    private Integer amount;
+
+    @Entity
+    @Table(name = "cores_numbers")
+    @Getter
+    @Setter
+    public static class CoresNumber {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_coresNumberId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private ECoresNumberValue value;
+
+        public enum ECoresNumberValue {
+            FOUR, SIX, EIGHT, TWELVE, TWENTY_FOUR, THIRTY_TWO, SIXTY_FOUR
+        }
+    }
+
+    @Entity
+    @Table(name = "level_three_caches")
+    @Getter
+    @Setter
+    public static class LevelThreeCache {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_levelThreeCacheId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private ELevelThreeCacheValue value;
+
+        public enum ELevelThreeCacheValue {
+            SIXTEEN, THIRTY_TWO, SIXTY_FOUR
+        }
+    }
+
+    @Entity
+    @Table(name = "tdps")
+    @Getter
+    @Setter
+    public static class Tdp {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_tpdId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private ETdpValue value;
+
+        public enum ETdpValue {
+            NINETY_FIVE, SIXTY_FIVE
+        }
+    }
+
+    @Entity
+    @Table(name = "technical_processes")
+    @Getter
+    @Setter
+    public static class TechnicalProcess {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_technicalProcessId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private ETechnicalProcessValue value;
+
+        public enum ETechnicalProcessValue {
+            THIRTY_TWO, TWENTY_FOUR, TWENTY_TWO, EIGHTEEN, SIXTEEN, FOURTEEN
+        }
+    }
+
+    @Entity
+    @Table(name = "threads_numbers")
+    @Getter
+    @Setter
+    public static class ThreadsNumber {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_threadsNumberId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private EThreadsNumberValue value;
+
+        public enum EThreadsNumberValue {
+            EIGHT, TWELVE, SIXTEEN, TWENTY_FOUR, THIRTY_TWO, SIXTY_FOUR
+        }
+    }
 }
 

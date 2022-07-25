@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,4 +45,28 @@ public class Motherboard {
     @OneToOne
     @JoinColumn(name = "memory_slots_number_id")
     private MemorySlotsNumber memorySlotsNumber;
+
+    @Column(name = "amount")
+    private Integer amount;
+
+    @Entity
+    @Table(name = "memory_slots_numbers")
+    @Getter
+    @Setter
+    public static class MemorySlotsNumber {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_memorySlotNumberId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private EMemorySlotsNumberValue value;
+
+        public enum EMemorySlotsNumberValue {
+            TWO, FOUR, SIX
+        }
+    }
 }

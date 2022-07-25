@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,4 +53,70 @@ public class WaterCoolingSystem {
     @OneToOne
     @JoinColumn(name = "pump_noise_level_id")
     private PumpNoiseLevel pumpNoiseLevel;
+
+    @Column(name = "amount")
+    private Integer amount;
+
+    @Entity
+    @Table(name = "pump_noise_levels")
+    @Getter
+    @Setter
+    public static class PumpNoiseLevel {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_pumpNoiseLevelId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "value")
+        @Enumerated(value = EnumType.STRING)
+        private EPumpNoiseLevelValue value;
+
+        public enum EPumpNoiseLevelValue {
+            THIRTY, SIXTY
+        }
+    }
+
+    @Entity
+    @Table(name = "water_block_materials")
+    @Getter
+    @Setter
+    public static class WaterBlockMaterial {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_waterBlockMaterialId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "type")
+        @Enumerated(value = EnumType.STRING)
+        private EWaterBlockMaterialType type;
+
+        public enum EWaterBlockMaterialType {
+            COPPER, ALUMINIUM
+        }
+    }
+
+    @Entity
+    @Table(name = "water_cooling_system_case_materials")
+    @Getter
+    @Setter
+    public static class WaterCoolingSystemCaseMaterial {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_idGenerator")
+        @SequenceGenerator(name = "seq_idGenerator", sequenceName = "seq_waterCoolingSystemCaseMaterialId", allocationSize = 1)
+        @Column(name = "id")
+        private Long id;
+
+        @Column(name = "type")
+        @Enumerated(value = EnumType.STRING)
+        private EWaterCoolingSystemCaseMaterialType type;
+
+        public enum EWaterCoolingSystemCaseMaterialType {
+            PLASTIC, ALUMINIUM
+        }
+    }
 }

@@ -1,0 +1,693 @@
+body {
+  background: url("../image/background.png") no-repeat center center fixed;
+  background-size: cover;
+  color: bisque;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: bisque;
+}
+
+.container {
+  position: relative;
+}
+
+.headerInfo {
+  border-bottom: 1px solid gray;
+  margin: 0 0 90px 0;
+
+  &__schedule {
+    text-align: center;
+    border-right: 1px solid gray;
+
+    &__telephone {
+      color: orange;
+    }
+
+    &__time {
+      color: #a8a8a8;
+    }
+
+    &__time::before {
+      content: url("../image/time.png");
+      width: 20px;
+      height: 25px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+
+  &__city {
+    border-right: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__other {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 1px solid gray;
+  }
+
+  &__menuAndBasket {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__dropdownMenu, &__dropdownBasket {
+
+      &__content {
+        width: 190px;
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        text-align: center;
+      }
+
+      &__content a {
+        color: bisque;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      &__content a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+    }
+
+    &__dropdownBasket {
+
+      &__image {
+        filter: invert(1);
+        width: 30px;
+        height: 30px;
+      }
+
+      &__content {
+        left: 1160px;
+
+        &__firstLine {
+          margin: 20px 0 20px 0;
+        }
+
+        &__goodsNumber {
+          font-size: 35px;
+          color: red;
+        }
+
+        &__lastLine {
+          margin: 20px 0 40px 0;
+        }
+
+        &__submit {
+          border-radius: 10px;
+          background-color: #78fd3f;
+          border: none;
+          height: 40px;
+          width: 170px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    &__dropdownMenu:hover {
+      cursor: pointer;
+
+      .headerInfo__menuAndBasket__dropdownMenu__content {
+        display: block;
+        position: absolute;
+        right: 80px;
+      }
+    }
+
+    &__dropdownBasket:hover {
+      cursor: pointer;
+
+      .headerInfo__menuAndBasket__dropdownBasket__content {
+        display: block;
+        position: absolute;
+        right: 80px;
+      }
+    }
+  }
+}
+
+.search {
+  margin: 0 0 90px 0;
+
+  &__form {
+    text-align: center;
+
+    &__text {
+      height: 50px;
+      width: 80%;
+      text-align: center;
+    }
+
+    &__submit {
+      height: 50px;
+      width: 19%;
+      background-color: orange;
+      border-radius: 10px;
+      border: none;
+    }
+
+    &__submit:hover {
+      background-color: #ffb436;
+    }
+  }
+}
+
+.banner {
+  margin: 0 0 90px 0;
+
+  &__content {
+    background-image: url("../image/warently.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 420px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__leftArrow, &__rightArrow {
+      filter: invert(1);
+      height: 50px;
+      width: 50px;
+    }
+
+    &__leftArrow:hover, &__rightArrow:hover {
+      filter: invert(0);
+      cursor: pointer;
+    }
+  }
+}
+
+.firstProductsLine, .secondProductsLine, .thirdProductsLine {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &__firstElement, &__secondElement, &__thirdElement {
+    height: 270px;
+    background-size: 416px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: end;
+
+    &__nameLine {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 20%;
+      width: 100%;
+      background-color: rgba(164, 175, 180, 0.5);
+    }
+  }
+
+  &__firstElement:hover, &__secondElement:hover, &__thirdElement:hover {
+    cursor: pointer;
+  }
+}
+
+.firstProductsLine {
+  text-align: center;
+
+  &__firstElement {
+    background-image: url("../image/noutbuki.jpg");
+  }
+
+  &__secondElement {
+    background-image: url("../image/monobloki.jpg");
+  }
+
+  &__thirdElement {
+    background-image: url("../image/komplektuushiye.jpg");
+  }
+
+  &__firstElement:hover {
+    .firstProductsLine__firstElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__secondElement:hover {
+    .firstProductsLine__secondElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__thirdElement:hover {
+    .firstProductsLine__thirdElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+}
+
+.secondProductsLine {
+  text-align: center;
+
+  &__firstElement {
+    background-image: url("../image/gotoviye-komputeri.jpg");
+  }
+
+  &__secondElement {
+    background-image: url("../image/monitori.jpg");
+  }
+
+  &__thirdElement {
+    background-image: url("../image/klava-mish-kovrik.jpg");
+  }
+
+  &__firstElement:hover {
+    .secondProductsLine__firstElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__secondElement:hover {
+    .secondProductsLine__secondElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__thirdElement:hover {
+    .secondProductsLine__thirdElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+}
+
+.thirdProductsLine {
+  text-align: center;
+
+  &__firstElement {
+    background-image: url("../image/audiotechnika-i-usiliteli.jpg");
+  }
+
+  &__secondElement {
+    background-image: url("../image/setevoye-oborudovaniye.jpg");
+  }
+
+  &__thirdElement {
+    background-image: url("../image/igrovaya-atributika.jpg");
+  }
+
+  &__firstElement:hover {
+    .thirdProductsLine__firstElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__secondElement:hover {
+    .thirdProductsLine__secondElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+
+  &__thirdElement:hover {
+    .thirdProductsLine__thirdElement__nameLine {
+      background-color: #ff0000;
+      color: black;
+    }
+  }
+}
+
+/// MEDIAS
+
+@media screen and (max-width: 1399px) {
+  .headerInfo {
+    &__menuAndBasket {
+      &__dropdownBasket {
+        &__content {
+          left: 980px;
+        }
+      }
+    }
+  }
+
+  .firstProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 93.68% 100%;
+    }
+  }
+
+  .secondProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 93.68% 100%;
+    }
+  }
+
+  .thirdProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 93.68% 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+
+  .headerInfo {
+    &__menuAndBasket {
+      &__dropdownBasket {
+        &__content {
+          left: 780px;
+        }
+      }
+    }
+  }
+
+  .banner {
+    &__content {
+      background-size: contain;
+    }
+  }
+
+  .firstProductsLine {
+    margin-top: -20px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 92.50% 90%;
+      padding-bottom: 13.50px;
+    }
+  }
+
+  .secondProductsLine {
+    margin-top: -30px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 92.50% 90%;
+      padding-bottom: 13.50px;
+    }
+  }
+
+  .thirdProductsLine {
+    margin-top: -30px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 92.50% 90%;
+      padding-bottom: 13.50px;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .headerInfo {
+    &__other {
+      flex-direction: column;
+    }
+
+    &__menuAndBasket {
+      flex-direction: column;
+
+      &__dropdownBasket {
+        &__content {
+          left: 550px;
+        }
+      }
+    }
+  }
+
+  .banner {
+    &__content {
+      height: 280px;
+    }
+  }
+
+  .firstProductsLine {
+    margin-top: -50px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 90% 60%;
+      padding-bottom: 53.54px;
+    }
+  }
+
+  .secondProductsLine {
+    margin-top: -110px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 90% 60%;
+      padding-bottom: 53.54px;
+    }
+  }
+
+  .thirdProductsLine {
+    margin-top: -110px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 90% 60%;
+      padding-bottom: 53.54px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .headerInfo {
+    margin: 0 0 55px 0;
+
+    &__schedule {
+      &__time {
+        font-size: 14px;
+      }
+
+      &__time::before {
+        height: 20px;
+      }
+    }
+
+    &__other {
+      flex-direction: column;
+    }
+
+    &__menuAndBasket {
+      flex-direction: column;
+
+      &__dropdownMenu {
+        &__content {
+          left: 350px;
+        }
+      }
+
+      &__dropdownBasket {
+        &__content {
+          left: 370px;
+        }
+      }
+    }
+  }
+
+  .search {
+    margin: 0 0 15px 0;
+
+    &__form {
+      &__submit {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .banner {
+    margin: 0 0 10px 0;
+  }
+
+  .firstProductsLine {
+
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 86.67% 50%;
+      padding-bottom: 67.44px;
+    }
+  }
+
+  .secondProductsLine {
+    margin-top: -140px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 86.67% 50%;
+      padding-bottom: 67.44px;;
+    }
+  }
+
+  .thirdProductsLine {
+    margin-top: -140px;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      background-size: 86.67% 50%;
+      padding-bottom: 67.44px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  .headerInfo {
+    &__menuAndBasket {
+      &__dropdownMenu {
+        &__content {
+          left: 330px;
+          top: 20px;
+          width: 100px;
+        }
+      }
+
+      &__dropdownBasket {
+        &__content {
+          right: 0;
+          left: 340px;
+          top: 40px;
+          width: 100px;
+
+          &__lastLine {
+            font-size: 14px;
+          }
+
+          &__submit {
+            width: 90%;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  .search {
+    &__form {
+      &__submit {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .firstProductsLine {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      display: flex;
+      justify-content: center;
+      background-size: 86.67% 100%;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+
+      &__nameLine {
+        width: 90.5%;
+        height: 15%;
+      }
+    }
+  }
+
+  .secondProductsLine {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      display: flex;
+      justify-content: center;
+      background-size: 86.67% 100%;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+
+      &__nameLine {
+        width: 90.5%;
+        height: 15%;
+      }
+    }
+  }
+
+  .thirdProductsLine {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &__firstElement, &__secondElement, &__thirdElement {
+      display: flex;
+      justify-content: center;
+      background-size: 86.67% 100%;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+
+      &__nameLine {
+        width: 90.5%;
+        height: 15%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 484px) {
+  .headerInfo {
+    &__menuAndBasket {
+      &__dropdownMenu {
+        &__content {
+          left: 290px;
+        }
+      }
+
+      &__dropdownBasket {
+        &__content {
+          left: 290px;
+        }
+      }
+    }
+  }
+
+  .search {
+    &__form {
+      &__text {
+        margin-bottom: 25px;
+      }
+
+      &__submit {
+        width: 35%;
+      }
+    }
+  }
+
+  .firstProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      &__nameLine {
+        width: 91.5%;
+      }
+    }
+  }
+
+  .secondProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      &__nameLine {
+        width: 91.5%;
+      }
+    }
+  }
+
+  .thirdProductsLine {
+    &__firstElement, &__secondElement, &__thirdElement {
+      &__nameLine {
+        width: 91.5%;
+      }
+    }
+  }
+}
+

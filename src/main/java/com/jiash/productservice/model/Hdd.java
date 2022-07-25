@@ -48,4 +48,7 @@ public class Hdd {
 
     @Column(name = "sequential_read_speed")
     private Integer sequentialReadSpeed;
+
+    @Column(name = "amount")
+    private Integer amount;
 }

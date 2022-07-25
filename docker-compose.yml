@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  database:
+    image: postgres:latest
+    container_name: university_productServiceDatabase
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: jiash
+      POSTGRES_PASSWORD: Asas4545
+      POSTGRES_DB: productService
